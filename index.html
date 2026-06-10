@@ -446,12 +446,24 @@
 </head>
 <body>
 
-<!-- ============ ヘッダー / グローバルナビ ============ -->
+<!-- ###########################################################
+     差し替え作業者向け 凡例（このコメントは公開前に削除可）
+     ・【差し替え】… 本番の文言・URL・画像に置き換える箇所
+     ・【仮】      … ダミーの数値・サンプルデータ（実データに）
+     ・ブランドカラーは <style> 内 :root の
+       --brand-1 / --brand-2 / --brand-grad の3つだけ変えれば全体に反映
+     ・各セクションは <section> 単位。冒頭コメントに役割を記載
+     ########################################################### -->
+
+<!-- ============ ヘッダー / グローバルナビ（全ページ共通・上部固定） ============ -->
 <header>
   <nav class="nav">
+    <!-- ロゴ：クリックでページ最上部へ戻る。【差し替え】社名ロゴ画像 or テキスト -->
     <a href="#home" class="logo" onclick="scrollToTop(event)"><span class="chip"></span>COMPANY</a>
+    <!-- ↓ スマホ用ハンバーガーメニューの開閉スイッチ（チェックボックス＋ラベル。JS不要） -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <label for="nav-toggle" class="nav-burger" aria-label="メニュー"><span></span><span></span><span></span></label>
+    <!-- グローバルナビ：各リンクはページ内セクションへジャンプ（アンカー） -->
     <div class="nav-menu">
       <ul class="gnav">
         <li><a href="#home">HOME<span>トップ</span></a></li>
@@ -460,6 +472,7 @@
         <li><a href="#news">NEWS<span>お知らせ</span></a></li>
         <li><a href="#contact">CONTACT<span>お問い合わせ</span></a></li>
       </ul>
+      <!-- ヘッダー右の常時表示CTA。お問い合わせセクションへ誘導 -->
       <div class="nav-cta"><a href="#contact" class="btn btn-primary">お問い合わせ</a></div>
     </div>
   </nav>
@@ -470,12 +483,18 @@
      ============================================================ -->
 <span id="home" class="anchor"></span>
 
-<!-- ファーストビュー：横幅いっぱい / 高さ550px / 背景にAI生成画像予定 -->
+<!-- ファーストビュー：横幅いっぱい / 高さ550px / テキスト＋ボタンを画像上に重ねる構造
+     【差し替え】背景画像 … CSS .hero の background をAI生成画像（background-image:url(...)）に -->
 <div class="hero">
+  <!-- ↓ 画像配置位置の目印。本番では削除 -->
   <span class="img-note">背景：AI生成画像を配置予定</span>
   <div class="wrap">
+    <!-- 【差し替え】キャッチコピー（大見出し） -->
     <h1>人と企業の、<br>最良の出会いをデザインする。</h1>
+    <!-- 【差し替え】サブコピー（1〜2行） -->
     <p class="sub">転職を考えるあなたにも、採用に悩む企業にも。<br>確かな実績で、次の一歩に伴走します。</p>
+    <!-- サービス遷移ボタン2つ。リンク先＝同階層 ../サービスページ/ 内のHTML
+         【差し替え】ボタン文言（サービス正式名）／必要ならリンク先ファイル名 -->
     <div class="hero-btns">
       <a href="../サービスページ/serviceA.html" class="btn btn-primary">【サービスA名（仮）】を見る</a>
       <a href="../サービスページ/serviceB.html" class="btn btn-ghost-white">【サービスB名（仮）】を見る</a>
@@ -483,30 +502,35 @@
   </div>
 </div>
 
-<!-- 選ばれる理由（数字で示すブロック） -->
+<!-- 選ばれる理由：実績数値をアイコン＋数字＋説明で4つ並べる信頼訴求ブロック
+     各 .reason = 1項目。【差し替え】.icon に実アイコン／.num の数値／.label の説明 -->
 <section class="reasons">
   <div class="wrap">
     <p class="en-big">4 REASONS WHY</p>
     <div class="sec-head" style="margin-bottom:56px;">
       <h2>選ばれる理由</h2>
-      <span class="accent-line"></span>
+      <span class="accent-line"></span><!-- ブランドカラーのアクセント線 -->
     </div>
     <div class="reason-grid">
+      <!-- 項目1：【仮】数値・【差し替え】アイコン -->
       <div class="reason">
         <div class="icon">ICON</div>
         <div class="num">98<small>%</small></div>
         <div class="label">入社後定着率</div>
       </div>
+      <!-- 項目2 -->
       <div class="reason">
         <div class="icon">ICON</div>
         <div class="num">24<small>h</small></div>
         <div class="label">最短サポート対応</div>
       </div>
+      <!-- 項目3 -->
       <div class="reason">
         <div class="icon">ICON</div>
         <div class="num">12,000<small>件</small></div>
         <div class="label">累計支援実績</div>
       </div>
+      <!-- 項目4 -->
       <div class="reason">
         <div class="icon">ICON</div>
         <div class="num">15<small>年</small></div>
@@ -528,7 +552,7 @@
       <span class="accent-line"></span>
     </div>
 
-    <!-- ミッション / ビジョン -->
+    <!-- ミッション / ビジョン：2枚のカード。【差し替え】各 <p> の本文 -->
     <div class="mv-block">
       <div class="mv-card">
         <span class="en-label">MISSION</span>
@@ -542,7 +566,7 @@
       </div>
     </div>
 
-    <!-- 会社情報テーブル -->
+    <!-- 会社情報テーブル：左<th>=項目名 / 右<td>=内容。【差し替え】各<td>を実際の会社情報に -->
     <table class="company">
       <tr><th>会社名</th><td>株式会社〇〇</td></tr>
       <tr><th>設立</th><td>20XX年X月X日</td></tr>
@@ -550,9 +574,11 @@
       <tr><th>代表者</th><td>代表取締役　〇〇 〇〇</td></tr>
       <tr><th>事業内容</th><td>人材紹介事業・転職支援サービスの運営</td></tr>
       <tr><th>資本金</th><td>0,000万円</td></tr>
+      <!-- 行を増やす場合は <tr><th>項目</th><td>内容</td></tr> を追加 -->
     </table>
 
-    <!-- メンバー紹介 -->
+    <!-- メンバー紹介：カード4枚。【差し替え】.photo に顔写真／<h4>氏名／.role 役職
+         人数を変える場合は <div class="member">…</div> を増減 -->
     <div class="sec-head" style="margin-bottom:48px;">
       <span class="en-label">Members</span>
       <h2 style="font-size:24px;">メンバー紹介</h2>
@@ -593,26 +619,32 @@
       <h2>サービス一覧</h2>
       <span class="accent-line"></span>
     </div>
+    <!-- サービス紹介：左にテキスト＋ボタン／右に画像の横並び行。1サービス＝.service-row 1つ
+         サービスを増やす場合は .service-row ブロックを複製 -->
     <div class="service-list">
 
+      <!-- サービスA：求職者向け。【差し替え】アイコン／サービス名／説明文／.s-img画像／リンク先 -->
       <div class="service-row">
         <div class="s-text">
           <div class="s-icon">ICON</div>
           <h3>【サービスA名（仮）】</h3>
           <p>転職を検討する求職者向けのキャリア支援サービス。専任アドバイザーが求人紹介から面接対策まで一貫してサポートします。ここに仮テキストが入ります。ここに仮テキストが入ります。</p>
+          <!-- リンク先＝ ../サービスページ/serviceA.html（同階層のサービスサイト） -->
           <a href="../サービスページ/serviceA.html" class="btn btn-primary">詳しくはこちら</a>
         </div>
-        <div class="s-img">IMAGE</div>
+        <div class="s-img">IMAGE</div><!-- 【差し替え】サービスイメージ画像 -->
       </div>
 
+      <!-- サービスB：企業向け。【差し替え】同上 -->
       <div class="service-row">
         <div class="s-text">
           <div class="s-icon">ICON</div>
           <h3>【サービスB名（仮）】</h3>
           <p>採用企業向けの人材紹介サービス。要件に合った候補者をスピーディーにご提案し、採用課題の解決を支援します。ここに仮テキストが入ります。ここに仮テキストが入ります。</p>
+          <!-- リンク先＝ ../サービスページ/serviceB.html -->
           <a href="../サービスページ/serviceB.html" class="btn btn-primary">詳しくはこちら</a>
         </div>
-        <div class="s-img">IMAGE</div>
+        <div class="s-img">IMAGE</div><!-- 【差し替え】サービスイメージ画像 -->
       </div>
 
     </div>
@@ -630,6 +662,9 @@
       <h2>ニュース / お知らせ</h2>
       <span class="accent-line"></span>
     </div>
+    <!-- お知らせ一覧：1件＝<a class="news-item">（日付／カテゴリ／タイトル）。クリックで記事へ
+         【仮】以下6件はダミーデータ。【差し替え】href を各記事URLに、本文を実データに
+         件数を変える場合は <a class="news-item">…</a> を増減 -->
     <div class="news-list">
       <a href="#" class="news-item">
         <span class="date en">2026.06.01</span>
@@ -676,6 +711,8 @@
       <h2>お問い合わせ</h2>
       <span class="accent-line"></span>
     </div>
+    <!-- お問い合わせフォーム：※見た目のみ。送信機能なし（onsubmit="return false;"）
+         【差し替え】本番では <form> の action/method 設定やバリデーション、送信処理を実装 -->
     <div class="form-wrap">
       <form onsubmit="return false;">
         <div class="form-row">
@@ -702,10 +739,12 @@
   </div>
 </section>
 
-<!-- ============ フッター ============ -->
+<!-- ============ フッター（全ページ共通） ============ -->
 <footer>
   <div class="wrap">
+    <!-- 【差し替え】社名ロゴ -->
     <div class="logo"><span class="chip"></span>COMPANY</div>
+    <!-- メインナビ（ページ内アンカー） -->
     <ul class="f-nav">
       <li><a href="#home">HOME</a></li>
       <li><a href="#about">ABOUT</a></li>
@@ -713,17 +752,21 @@
       <li><a href="#news">NEWS</a></li>
       <li><a href="#contact">CONTACT</a></li>
     </ul>
+    <!-- サブリンク（規約・関連会社）。【差し替え】各 href を実URLに -->
     <ul class="f-sub">
+      <!-- プライバシーポリシーページへ -->
       <li><a href="#">プライバシーポリシー</a></li>
+      <!-- 求職者向け 個人情報の取り扱いページへ -->
       <li><a href="#">個人情報の取り扱いについて（求職者用）</a></li>
-      <!-- ↓ グループ会社サイトのURLに差し替えてください -->
+      <!-- 【差し替え】グループ会社サイトURL（別タブ表示）。社名も正式名称に -->
       <li><a href="#" target="_blank" rel="noopener">株式会社xx<span class="ext">↗</span></a></li>
     </ul>
+    <!-- 【差し替え】コピーライト（年・社名） -->
     <div class="copy">© 20XX 株式会社〇〇 All Rights Reserved.</div>
   </div>
 </footer>
 
-<!-- TOPに戻る固定ボタン -->
+<!-- TOPに戻る固定ボタン：右下に常駐。300pxスクロールで表示／クリックで最上部へ（下部script参照） -->
 <button id="toTop" class="to-top" aria-label="ページ上部へ戻る" onclick="scrollToTop(event)">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </button>
