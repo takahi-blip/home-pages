@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>転職ノウハウ・コラム | サービスA（仮） ワイヤーフレーム</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --c-text: #2b2b2b; --c-text-sub: #6b6b6b; --c-line: #dcdcdc;
+    --c-bg: #ffffff; --c-bg-alt: #f5f5f5; --c-bg-dark: #e4e4e4; --c-placeholder: #cfcfcf;
+    /* メインCTA／アクセント：サービスA＝コーラル（コーポレートのターコイズと非干渉） */
+    --c-primary: #E25A3E; --c-primary-hover: #C4472D;
+    --maxw: 1200px; --gutter: 40px;
+  }
+  body { font-family: "Noto Sans JP", sans-serif; font-weight: 300; color: var(--c-text); background: var(--c-bg); line-height: 1.9; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4 { font-weight: 400; line-height: 1.4; }
+  .en { font-family: "Inter", sans-serif; letter-spacing: 0.08em; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+  .section { padding: 90px 0; }
+  .section--alt { background: var(--c-bg-alt); }
+  .section + .section { border-top: 1px solid var(--c-line); }
+  .sec-head { text-align: center; margin-bottom: 56px; }
+  .sec-head .label { display: block; font-family: "Inter", sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; color: var(--c-text-sub); margin-bottom: 14px; }
+  .sec-head h2 { font-size: 28px; font-weight: 400; letter-spacing: 0.04em; }
+  .sec-head p { margin-top: 16px; font-size: 14px; color: var(--c-text-sub); }
+
+  .btn { display: inline-block; padding: 15px 36px; font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 400; text-align: center; border: 1px solid var(--c-text); background: transparent; color: var(--c-text); cursor: pointer; transition: all 0.2s ease; border-radius: 2px; }
+  .btn:hover { background: var(--c-bg-dark); }
+  .btn-primary { display: inline-block; padding: 15px 40px; font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 500; text-align: center; border: 1px solid var(--c-primary); background: var(--c-primary); color: #fff; cursor: pointer; transition: all 0.2s ease; border-radius: 2px; }
+  .btn-primary:hover { background: var(--c-primary-hover); border-color: var(--c-primary-hover); }
+  .ph { background: var(--c-placeholder); color: #888; display: flex; align-items: center; justify-content: center; font-family: "Inter", sans-serif; font-size: 12px; letter-spacing: 0.08em; text-align: center; }
+
+  /* HEADER */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--c-line); backdrop-filter: blur(4px); }
+  .header-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: "Inter", sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 0.05em; }
+  .logo span { font-size: 12px; color: var(--c-text-sub); margin-left: 8px; font-weight: 400; }
+  .gnav { display: flex; align-items: center; gap: 24px; }
+  .gnav a.nav-link { font-size: 13px; font-family: "Inter", sans-serif; font-weight: 500; letter-spacing: 0.06em; color: var(--c-text-sub); transition: color 0.2s; }
+  .gnav a.nav-link.current { color: var(--c-text); border-bottom: 2px solid var(--c-text); padding-bottom: 4px; }
+  .gnav a.nav-link:hover { color: var(--c-text); }
+  .nav-cta { font-size: 13px; color: #fff; background: var(--c-primary); padding: 9px 18px; border-radius: 2px; }
+  .nav-cta:hover { background: var(--c-primary-hover); }
+
+  /* ページヘッダー（ハブ） */
+  .khead { background: var(--c-bg-alt); padding: 64px 0 56px; text-align: center; border-bottom: 1px solid var(--c-line); }
+  .breadcrumb { font-size: 12px; color: var(--c-text-sub); margin-bottom: 26px; }
+  .breadcrumb a:hover { color: var(--c-text); }
+  .breadcrumb span { margin: 0 8px; color: var(--c-line); }
+  .khead .label { font-family: "Inter", sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; color: var(--c-text-sub); display: block; margin-bottom: 14px; }
+  .khead h1 { font-size: 34px; font-weight: 400; letter-spacing: 0.04em; }
+  .khead p { margin-top: 18px; font-size: 15px; color: var(--c-text-sub); }
+  /* タブ */
+  .ktabs { display: flex; justify-content: center; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+  .ktabs a { font-size: 13px; color: var(--c-text-sub); border: 1px solid var(--c-line); background: #fff; padding: 10px 22px; border-radius: 999px; transition: all 0.2s; }
+  .ktabs a:hover { background: var(--c-text); color: #fff; border-color: var(--c-text); }
+
+  /* 検索バー（ダミー） */
+  .ksearch { max-width: 560px; margin: 30px auto 0; display: flex; gap: 10px; }
+  .ksearch input { flex: 1; padding: 13px 16px; border: 1px solid var(--c-line); border-radius: 2px; font-family: "Noto Sans JP", sans-serif; font-size: 14px; background: #fff; }
+  .ksearch input:focus { outline: none; border-color: var(--c-text-sub); }
+
+  /* 転職成功ガイド（Step別） */
+  .guide-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .guide-card { border: 1px solid var(--c-line); border-radius: 3px; background: #fff; padding: 26px 22px; display: flex; flex-direction: column; }
+  .guide-card .step { font-family: "Inter", sans-serif; font-size: 11px; letter-spacing: 0.14em; color: var(--c-text-sub); }
+  .guide-card .step b { display: block; font-size: 28px; font-weight: 700; color: var(--c-text); line-height: 1; margin-top: 4px; }
+  .guide-card h3 { font-size: 15px; font-weight: 500; margin: 16px 0 16px; padding-bottom: 14px; border-bottom: 1px solid var(--c-line); }
+  .guide-card ul { flex-grow: 1; }
+  .guide-card ul li { font-size: 13px; padding: 7px 0 7px 16px; position: relative; color: var(--c-text-sub); }
+  .guide-card ul li::before { content: ""; position: absolute; left: 0; top: 14px; width: 5px; height: 5px; border-top: 1px solid var(--c-text-sub); border-right: 1px solid var(--c-text-sub); transform: rotate(45deg); }
+  .guide-card ul li a:hover { color: var(--c-text); text-decoration: underline; }
+  .guide-card .more { margin-top: 16px; font-size: 12px; color: var(--c-text); font-family: "Inter", sans-serif; }
+  .guide-card .more:hover { text-decoration: underline; }
+
+  /* 必読マニュアル */
+  .manual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .manual-card { border: 1px solid var(--c-line); border-radius: 3px; background: #fff; overflow: hidden; display: flex; }
+  .manual-card .ph { width: 110px; flex-shrink: 0; }
+  .manual-card .m-body { padding: 22px 24px; }
+  .manual-card h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+  .manual-card p { font-size: 13px; color: var(--c-text-sub); margin-bottom: 12px; }
+  .manual-card .more { font-size: 12px; color: var(--c-text); font-family: "Inter", sans-serif; }
+  .manual-card .more:hover { text-decoration: underline; }
+
+  /* コラム記事カード */
+  .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .article-card { border: 1px solid var(--c-line); border-radius: 3px; background: #fff; overflow: hidden; transition: box-shadow 0.2s; }
+  .article-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.06); }
+  .article-card .ph { height: 168px; }
+  .article-body { padding: 22px 22px 26px; }
+  .article-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .article-tags span { font-size: 11px; color: var(--c-text-sub); background: var(--c-bg-alt); border: 1px solid var(--c-line); padding: 3px 10px; border-radius: 999px; }
+  .article-card h3 { font-size: 16px; font-weight: 500; line-height: 1.6; margin-bottom: 12px; }
+  .article-card h3 a:hover { text-decoration: underline; }
+  .article-meta { font-size: 12px; color: var(--c-text-sub); font-family: "Inter", sans-serif; }
+  .more-center { text-align: center; margin-top: 50px; }
+
+  /* ランキング（人気記事） */
+  .rank-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 50px; max-width: 980px; margin: 0 auto; }
+  .rank-item { display: flex; align-items: center; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--c-line); }
+  .rank-num { font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; color: var(--c-bg-dark); width: 40px; flex-shrink: 0; text-align: center; }
+  .rank-item:nth-child(-n+3) .rank-num { color: var(--c-text); }
+  .rank-thumb { width: 64px; height: 48px; flex-shrink: 0; }
+  .rank-item p { font-size: 14px; }
+  .rank-item p:hover { text-decoration: underline; }
+
+  /* 人気キーワード */
+  .kw-cloud { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 900px; margin: 0 auto; }
+  .kw-cloud a { font-size: 13px; color: var(--c-text-sub); border: 1px solid var(--c-line); background: #fff; padding: 9px 18px; border-radius: 999px; transition: all 0.2s; }
+  .kw-cloud a:hover { background: var(--c-text); color: #fff; border-color: var(--c-text); }
+
+  /* 相談CTA */
+  .cta-band { background: var(--c-text); color: #fff; text-align: center; padding: 70px 0; }
+  .cta-band h2 { font-size: 26px; font-weight: 400; margin-bottom: 16px; }
+  .cta-band p { font-size: 14px; color: #cfcfcf; margin-bottom: 32px; }
+  .cta-band .btn-primary { border-color: #fff; background: #fff; color: var(--c-text); }
+  .cta-band .btn-primary:hover { background: #e4e4e4; }
+
+  /* FOOTER */
+  footer { background: #2b2b2b; color: #cfcfcf; padding: 56px 0 40px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: flex-start; }
+  footer .f-logo { font-family: "Inter", sans-serif; font-size: 20px; font-weight: 700; color: #fff; }
+  footer .f-nav { display: flex; flex-wrap: wrap; gap: 24px; max-width: 620px; justify-content: flex-end; }
+  footer .f-nav a { font-size: 13px; color: #b5b5b5; }
+  footer .f-nav a:hover { color: #fff; }
+  footer .copy { margin-top: 40px; font-family: "Inter", sans-serif; font-size: 11px; color: #888; letter-spacing: 0.05em; }
+
+  /* ===== 共通追加：固定ヘッダー対策・ヘッダーボタン・トップへ戻る ===== */
+  html { scroll-padding-top: 86px; scroll-behavior: smooth; }
+  header { background: var(--c-bg); backdrop-filter: none; }
+  .nav-btn { font-size: 14px; font-weight: 500; color: var(--c-text); border: 1px solid var(--c-line); padding: 10px 22px; border-radius: 2px; transition: all 0.2s; white-space: nowrap; }
+  .nav-btn:hover { background: var(--c-bg-alt); }
+  .nav-btn-primary { color: #fff; background: var(--c-primary); border-color: var(--c-primary); }
+  .nav-btn-primary:hover { background: var(--c-primary-hover); border-color: var(--c-primary-hover); }
+  .backtotop { position: fixed; right: 28px; bottom: 28px; z-index: 200; width: 48px; height: 48px; border-radius: 50%; background: var(--c-primary); color: #fff; border: none; font-size: 20px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.18); transition: all 0.2s; opacity: 0.92; }
+  .backtotop:hover { background: var(--c-primary-hover); opacity: 1; }
+  /* アクセント配色（CTA以外の差し色） */
+  .sec-head .label, .khead .label { color: var(--c-primary); }
+  .a-cat { background: var(--c-primary); }
+  .ktabs a:hover, .kw-cloud a:hover, .side-kw a:hover { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+  .guide-card .step b, .flow-num .n { color: var(--c-primary); }
+  .worry-answer p strong, .pain-answer p strong, .mech-note strong { color: var(--c-primary); }
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width: 1024px) {
+    :root { --gutter: 28px; }
+    .sec-head h2 { font-size: 26px; }
+    .guide-grid { grid-template-columns: repeat(3, 1fr); }
+    .article-grid { grid-template-columns: repeat(2, 1fr); }
+    .manual-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .section { padding: 70px 0; }
+    .khead { padding: 48px 0 44px; }
+    .khead h1 { font-size: 27px; }
+    .guide-grid { grid-template-columns: repeat(2, 1fr); }
+    .rank-grid { grid-template-columns: 1fr; }
+    footer .wrap { flex-direction: column; gap: 22px; }
+    footer .f-nav { justify-content: flex-start; max-width: none; }
+  }
+  @media (max-width: 560px) {
+    :root { --gutter: 18px; }
+    .guide-grid, .manual-grid, .article-grid { grid-template-columns: 1fr; }
+    .header-inner { height: 60px; }
+    .logo { font-size: 17px; }
+    .logo span { display: none; }
+    .gnav { gap: 10px; }
+    .nav-btn { padding: 8px 14px; font-size: 13px; }
+    .sec-head h2 { font-size: 21px; }
+    .khead h1 { font-size: 23px; }
+    .manual-card { flex-direction: column; }
+    .manual-card .ph { width: 100%; height: 120px; }
+    .ktabs { gap: 8px; }
+    .ksearch { flex-direction: column; }
+    .cta-band h2 { font-size: 21px; }
+    .backtotop { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="serviceA.html#top">SERVICE A<span>求職者向け（仮）</span></a>
+    <nav class="gnav">
+      <a class="nav-btn" href="knowledge.html">ノウハウ</a>
+      <a class="nav-btn nav-btn-primary" href="serviceA.html#contact">無料相談</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ ページヘッダー ============ -->
+<div class="khead">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="serviceA.html#top">TOP</a><span>/</span>転職ノウハウ・コラム</div>
+    <span class="label en">KNOWLEDGE &amp; COLUMN</span>
+    <h1>転職ノウハウ・コラム</h1>
+    <p>応募企業の探し方や応募書類の書き方、面接のポイントから円満退職のコツまで。<br>あなたの転職成功に役立つ情報をお届けします。</p>
+    <div class="ktabs">
+      <a href="#guide">転職成功ガイド</a>
+      <a href="#manual">必読マニュアル</a>
+      <a href="#new">新着コラム</a>
+      <a href="#ranking">人気記事</a>
+      <a href="#keyword">キーワード</a>
+    </div>
+    <div class="ksearch">
+      <input type="text" placeholder="キーワードで記事を探す（例：職務経歴書 書き方）">
+      <button class="btn-primary" style="padding:13px 26px;" onclick="return false;">検索</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 転職成功ガイド（Step別） ============ -->
+<section id="guide" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">SUCCESS GUIDE</span>
+      <h2>転職成功ガイド</h2>
+      <p>転職活動の準備から内定・入社まで。5つのステップで成功に導くノウハウをご紹介します。</p>
+    </div>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <div class="step en">STEP<b>01</b></div>
+        <h3>転職活動を始める</h3>
+        <ul>
+          <li><a href="knowledge-article.html">転職活動の準備と進め方</a></li>
+          <li><a href="knowledge-article.html">転職に有利な時期は？</a></li>
+          <li><a href="knowledge-article.html">転職にかかる期間の目安</a></li>
+          <li><a href="knowledge-article.html">スケジュールの立て方</a></li>
+        </ul>
+        <a class="more en" href="knowledge.html">+ もっと見る</a>
+      </div>
+      <div class="guide-card">
+        <div class="step en">STEP<b>02</b></div>
+        <h3>応募企業を探す・選ぶ</h3>
+        <ul>
+          <li><a href="knowledge-article.html">企業選びの落とし穴</a></li>
+          <li><a href="knowledge-article.html">何社応募すべき？</a></li>
+          <li><a href="knowledge-article.html">向いている仕事の見つけ方</a></li>
+          <li><a href="knowledge-article.html">気を付けたい求人用語</a></li>
+        </ul>
+        <a class="more en" href="knowledge.html">+ もっと見る</a>
+      </div>
+      <div class="guide-card">
+        <div class="step en">STEP<b>03</b></div>
+        <h3>応募書類を書く</h3>
+        <ul>
+          <li><a href="knowledge-article.html">履歴書の書き方</a></li>
+          <li><a href="knowledge-article.html">職務経歴書サンプル</a></li>
+          <li><a href="knowledge-article.html">自己PR例文</a></li>
+          <li><a href="knowledge-article.html">志望動機の書き方</a></li>
+        </ul>
+        <a class="more en" href="knowledge.html">+ もっと見る</a>
+      </div>
+      <div class="guide-card">
+        <div class="step en">STEP<b>04</b></div>
+        <h3>面接対策をする</h3>
+        <ul>
+          <li><a href="knowledge-article.html">定番質問＆回答50</a></li>
+          <li><a href="knowledge-article.html">面接マナーの基本</a></li>
+          <li><a href="knowledge-article.html">お礼メールの書き方</a></li>
+          <li><a href="knowledge-article.html">最終面接に落ちる理由</a></li>
+        </ul>
+        <a class="more en" href="knowledge.html">+ もっと見る</a>
+      </div>
+      <div class="guide-card">
+        <div class="step en">STEP<b>05</b></div>
+        <h3>内定・退職・入社</h3>
+        <ul>
+          <li><a href="knowledge-article.html">円満退職の準備</a></li>
+          <li><a href="knowledge-article.html">内定から入社までの流れ</a></li>
+          <li><a href="knowledge-article.html">退職あいさつのコツ</a></li>
+          <li><a href="knowledge-article.html">退職手続きマニュアル</a></li>
+        </ul>
+        <a class="more en" href="knowledge.html">+ もっと見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 必読マニュアル ============ -->
+<section id="manual" class="section section--alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">COMPLETE MANUAL</span>
+      <h2>必読！ 転職完全マニュアル</h2>
+      <p>「履歴書」「職務経歴書」「面接」などの対策を基礎から解説。準備はまずここから。</p>
+    </div>
+    <div class="manual-grid">
+      <a class="manual-card" href="knowledge-article.html"><div class="ph">IMG</div><div class="m-body"><h3>履歴書の書き方</h3><p>基本マナーから記入例まで。仮テキストです。</p><span class="more en">詳しく見る →</span></div></a>
+      <a class="manual-card" href="knowledge-article.html"><div class="ph">IMG</div><div class="m-body"><h3>職務経歴書の書き方</h3><p>テンプレと職種別サンプル。仮テキストです。</p><span class="more en">詳しく見る →</span></div></a>
+      <a class="manual-card" href="knowledge-article.html"><div class="ph">IMG</div><div class="m-body"><h3>自己PRの書き方・例文</h3><p>強みの伝え方を例文付きで。仮テキストです。</p><span class="more en">詳しく見る →</span></div></a>
+      <a class="manual-card" href="knowledge-article.html"><div class="ph">IMG</div><div class="m-body"><h3>志望動機の書き方</h3><p>説得力のある伝え方とは。仮テキストです。</p><span class="more en">詳しく見る →</span></div></a>
+      <a class="manual-card" href="knowledge-article.html"><div class="ph">IMG</div><div class="m-body"><h3>面接対策ガイド</h3><p>頻出質問と回答のコツ。仮テキストです。</p><span class="more en">詳しく見る →</span></div></a>
+      <a class="manual-card" href="knowledge-article.html"><div class="ph">IMG</div><div class="m-body"><h3>退職願・退職届の書き方</h3><p>渡し方・タイミングも解説。仮テキストです。</p><span class="more en">詳しく見る →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 新着コラム ============ -->
+<section id="new" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">NEW ARTICLES</span>
+      <h2>新着コラム</h2>
+      <p>転職のトレンドや気になる話題など、編集部がお届けする最新コンテンツ。</p>
+    </div>
+    <div class="article-grid">
+      <article class="article-card"><div class="ph">ARTICLE IMAGE</div><div class="article-body"><div class="article-tags"><span>転職活動</span><span>スケジュール</span></div><h3><a href="knowledge-article.html">転職活動はいつ始める？ ベストなタイミングと進め方を解説</a></h3><div class="article-meta">2026.06.01</div></div></article>
+      <article class="article-card"><div class="ph">ARTICLE IMAGE</div><div class="article-body"><div class="article-tags"><span>職務経歴書</span><span>例文</span></div><h3><a href="knowledge-article.html">受かる職務経歴書の書き方｜職種別サンプル付き</a></h3><div class="article-meta">2026.05.28</div></div></article>
+      <article class="article-card"><div class="ph">ARTICLE IMAGE</div><div class="article-body"><div class="article-tags"><span>面接</span><span>対策</span></div><h3><a href="knowledge-article.html">面接で必ず聞かれる質問とは？ 好印象を残す回答例</a></h3><div class="article-meta">2026.05.20</div></div></article>
+      <article class="article-card"><div class="ph">ARTICLE IMAGE</div><div class="article-body"><div class="article-tags"><span>退職</span><span>マナー</span></div><h3><a href="knowledge-article.html">円満退職のための進め方｜退職の伝え方と注意点</a></h3><div class="article-meta">2026.05.14</div></div></article>
+      <article class="article-card"><div class="ph">ARTICLE IMAGE</div><div class="article-body"><div class="article-tags"><span>キャリア</span><span>30代</span></div><h3><a href="knowledge-article.html">30代の転職を成功させるには？ 押さえるべきポイント</a></h3><div class="article-meta">2026.05.08</div></div></article>
+      <article class="article-card"><div class="ph">ARTICLE IMAGE</div><div class="article-body"><div class="article-tags"><span>自己PR</span><span>未経験</span></div><h3><a href="knowledge-article.html">未経験からの転職｜自己PRで強みを伝えるコツ</a></h3><div class="article-meta">2026.05.01</div></div></article>
+    </div>
+    <div class="more-center"><a class="btn" href="knowledge.html">コラム一覧をもっと見る</a></div>
+  </div>
+</section>
+
+<!-- ============ 人気記事ランキング ============ -->
+<section id="ranking" class="section section--alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">RANKING</span>
+      <h2>人気記事ランキング</h2>
+      <p>いま多くの方に読まれている記事をピックアップ。</p>
+    </div>
+    <div class="rank-grid">
+      <a class="rank-item" href="knowledge-article.html"><div class="rank-num en">1</div><div class="ph rank-thumb">IMG</div><p>職務経歴書の書き方完全ガイド</p></a>
+      <a class="rank-item" href="knowledge-article.html"><div class="rank-num en">2</div><div class="ph rank-thumb">IMG</div><p>面接の定番質問＆回答例50</p></a>
+      <a class="rank-item" href="knowledge-article.html"><div class="rank-num en">3</div><div class="ph rank-thumb">IMG</div><p>志望動機の作り方と例文集</p></a>
+      <a class="rank-item" href="knowledge-article.html"><div class="rank-num en">4</div><div class="ph rank-thumb">IMG</div><p>退職理由の好印象な伝え方</p></a>
+      <a class="rank-item" href="knowledge-article.html"><div class="rank-num en">5</div><div class="ph rank-thumb">IMG</div><p>転職に有利な時期はいつ？</p></a>
+      <a class="rank-item" href="knowledge-article.html"><div class="rank-num en">6</div><div class="ph rank-thumb">IMG</div><p>自己PRの書き方・例文</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 人気キーワード ============ -->
+<section id="keyword" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">KEYWORDS</span>
+      <h2>人気キーワード</h2>
+      <p>気になるテーマから記事を探せます。</p>
+    </div>
+    <div class="kw-cloud">
+      <a href="knowledge.html">職務経歴書</a><a href="knowledge.html">履歴書</a><a href="knowledge.html">例文</a><a href="knowledge.html">サンプル</a><a href="knowledge.html">志望動機</a><a href="knowledge.html">自己PR</a><a href="knowledge.html">面接</a><a href="knowledge.html">退職理由</a><a href="knowledge.html">テンプレート</a><a href="knowledge.html">マナー</a><a href="knowledge.html">書き方</a><a href="knowledge.html">未経験</a><a href="knowledge.html">第二新卒</a><a href="knowledge.html">20代</a><a href="knowledge.html">30代</a><a href="knowledge.html">キャリアアップ</a><a href="knowledge.html">基礎知識</a><a href="knowledge.html">スケジュール</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 相談CTA ============ -->
+<div class="cta-band">
+  <div class="wrap">
+    <h2>読むだけで不安なときは、相談を。</h2>
+    <p>記事ではわからない、あなただけの悩み。専任アドバイザーに無料でご相談いただけます。</p>
+    <a class="btn-primary" href="serviceA.html#contact">無料で相談する</a>
+  </div>
+</div>
+
+<!-- 固定：トップへ戻る -->
+<button class="backtotop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ページ上部へ戻る">↑</button>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="f-logo">SERVICE A</div>
+      <p style="font-size:12px; color:#9a9a9a; margin-top:10px;">〇〇に特化した転職支援サービス（仮）／ 求職者向け</p>
+    </div>
+    <nav class="f-nav">
+      <a href="serviceA.html#top">TOP</a><a href="serviceA.html#features">特徴</a><a href="serviceA.html#mechanism">仕組み</a><a href="serviceA.html#flow">流れ</a><a href="knowledge.html">ノウハウ</a><a href="serviceA.html#contact">無料相談</a><a href="../コーポレートページ/wireframe.html" target="_blank">コーポレートサイト ↗</a>
+    </nav>
+  </div>
+  <div class="wrap"><div class="copy">© 2026 SERVICE A (Wireframe). All rights reserved.</div></div>
+</footer>
+
+</body>
+</html>

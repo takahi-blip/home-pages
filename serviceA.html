@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>サービスA（仮） | 求職者向け 転職支援サービス ワイヤーフレーム</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --c-text: #2b2b2b; --c-text-sub: #6b6b6b; --c-line: #dcdcdc;
+    --c-bg: #ffffff; --c-bg-alt: #f5f5f5; --c-bg-dark: #e4e4e4; --c-placeholder: #cfcfcf;
+    /* メインCTA／アクセント：サービスA＝コーラル（コーポレートのターコイズと非干渉） */
+    --c-primary: #E25A3E; --c-primary-hover: #C4472D;
+    --maxw: 1200px; --gutter: 40px;
+  }
+  body { font-family: "Noto Sans JP", sans-serif; font-weight: 300; color: var(--c-text); background: var(--c-bg); line-height: 1.9; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4 { font-weight: 400; line-height: 1.4; }
+  .en { font-family: "Inter", sans-serif; letter-spacing: 0.08em; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+  .section { padding: 110px 0; }
+  .section--alt { background: var(--c-bg-alt); }
+  .section + .section { border-top: 1px solid var(--c-line); }
+  .sec-head { text-align: center; margin-bottom: 70px; }
+  .sec-head .label { display: block; font-family: "Inter", sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; color: var(--c-text-sub); margin-bottom: 16px; }
+  .sec-head h2 { font-size: 30px; font-weight: 400; letter-spacing: 0.04em; }
+  .sec-head p { margin-top: 18px; font-size: 15px; color: var(--c-text-sub); }
+
+  .btn { display: inline-block; padding: 16px 38px; font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 400; text-align: center; border: 1px solid var(--c-text); background: transparent; color: var(--c-text); cursor: pointer; transition: all 0.2s ease; border-radius: 2px; }
+  .btn:hover { background: var(--c-bg-dark); }
+  .btn-primary { display: inline-block; padding: 16px 42px; font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 500; text-align: center; border: 1px solid var(--c-primary); background: var(--c-primary); color: #fff; cursor: pointer; transition: all 0.2s ease; border-radius: 2px; }
+  .btn-primary:hover { background: var(--c-primary-hover); border-color: var(--c-primary-hover); }
+  .ph { background: var(--c-placeholder); color: #888; display: flex; align-items: center; justify-content: center; font-family: "Inter", sans-serif; font-size: 13px; letter-spacing: 0.1em; text-align: center; }
+
+  /* HEADER */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--c-line); backdrop-filter: blur(4px); }
+  .header-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: "Inter", sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 0.05em; }
+  .logo span { font-size: 12px; color: var(--c-text-sub); margin-left: 8px; font-weight: 400; }
+  .gnav { display: flex; align-items: center; gap: 26px; }
+  .gnav a.nav-link { font-size: 13px; font-family: "Inter", sans-serif; font-weight: 500; letter-spacing: 0.06em; color: var(--c-text-sub); transition: color 0.2s; }
+  .gnav a.nav-link:hover { color: var(--c-text); }
+  .corp-link { font-size: 12px; color: var(--c-text-sub); border: 1px solid var(--c-line); padding: 8px 16px; border-radius: 2px; transition: all 0.2s; }
+  .corp-link:hover { background: var(--c-bg-alt); }
+
+  /* HERO */
+  .hero { position: relative; height: 550px; width: 100%; background: var(--c-placeholder); overflow: hidden; display: flex; align-items: center; }
+  .hero .ph-note { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: "Inter", sans-serif; font-size: 14px; letter-spacing: 0.12em; color: #9a9a9a; text-align: center; pointer-events: none; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(40,40,40,0.55) 0%, rgba(40,40,40,0.15) 70%); }
+  .hero-content { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); width: 100%; color: #fff; }
+  .hero-content .catch { font-size: 44px; font-weight: 400; line-height: 1.45; letter-spacing: 0.02em; text-shadow: 0 1px 12px rgba(0,0,0,0.3); max-width: 720px; }
+  .hero-content .sub { margin-top: 24px; font-size: 17px; font-weight: 300; max-width: 560px; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
+  .hero-cta { margin-top: 42px; display: flex; gap: 18px; }
+  .hero-cta .btn { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
+  .hero-cta .btn:hover { background: rgba(255,255,255,0.22); }
+
+  /* STATS */
+  .stats { background: var(--c-bg); padding: 80px 0; }
+  .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .stat-item { text-align: center; padding: 16px 24px; border-right: 1px solid var(--c-line); }
+  .stat-item:last-child { border-right: none; }
+  .stat-icon { width: 56px; height: 56px; margin: 0 auto 18px; border-radius: 50%; background: var(--c-bg-alt); border: 1px solid var(--c-line); display: flex; align-items: center; justify-content: center; }
+  .stat-icon svg { width: 26px; height: 26px; stroke: var(--c-text-sub); fill: none; stroke-width: 1.5; }
+  .stat-num { font-family: "Inter", sans-serif; font-size: 40px; font-weight: 700; line-height: 1; color: var(--c-text); }
+  .stat-num small { font-size: 20px; font-weight: 600; margin-left: 2px; }
+  .stat-label { margin-top: 12px; font-size: 14px; color: var(--c-text-sub); }
+
+  /* 不安 (worries) */
+  .worry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 56px; }
+  .worry-card { background: var(--c-bg); border: 1px solid var(--c-line); border-radius: 3px; padding: 34px 30px; position: relative; }
+  .worry-card .qmark { font-family: "Inter", sans-serif; font-size: 34px; font-weight: 700; color: var(--c-bg-dark); line-height: 1; margin-bottom: 14px; }
+  .worry-card p { font-size: 15px; color: var(--c-text); }
+  .worry-card p span { color: var(--c-text-sub); font-size: 13px; display: block; margin-top: 8px; }
+  .worry-answer { text-align: center; }
+  .worry-answer p { font-size: 19px; font-weight: 400; }
+  .worry-answer .arrow { font-size: 24px; color: var(--c-text-sub); margin-bottom: 14px; }
+
+  /* FEATURES */
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .feature-card { background: var(--c-bg); border: 1px solid var(--c-line); padding: 40px 32px; border-radius: 3px; transition: box-shadow 0.2s; }
+  .feature-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.06); }
+  .feature-card .ic { width: 52px; height: 52px; margin-bottom: 24px; border-radius: 50%; background: var(--c-bg-alt); display: flex; align-items: center; justify-content: center; }
+  .feature-card .ic svg { width: 26px; height: 26px; stroke: var(--c-text); fill: none; stroke-width: 1.5; }
+  .feature-card h3 { font-size: 18px; font-weight: 500; margin-bottom: 14px; }
+  .feature-card p { font-size: 14px; color: var(--c-text-sub); }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 60px; }
+  .shots .ph { height: 320px; border-radius: 3px; }
+
+  /* 仕組み (mechanism) */
+  .mech { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 0; margin-bottom: 50px; }
+  .mech-node { text-align: center; padding: 40px 24px; border: 1px solid var(--c-line); border-radius: 4px; background: var(--c-bg); }
+  .mech-node.center { background: var(--c-text); color: #fff; border-color: var(--c-text); }
+  .mech-node .role { font-family: "Inter", sans-serif; font-size: 12px; letter-spacing: 0.14em; color: var(--c-text-sub); margin-bottom: 12px; }
+  .mech-node.center .role { color: #bdbdbd; }
+  .mech-node .who { font-size: 20px; font-weight: 500; }
+  .mech-node .desc { font-size: 13px; color: var(--c-text-sub); margin-top: 10px; }
+  .mech-node.center .desc { color: #cfcfcf; }
+  .mech-arrow { padding: 0 18px; text-align: center; color: var(--c-text-sub); font-size: 13px; }
+  .mech-arrow .line { font-size: 26px; line-height: 1; }
+  .mech-note { text-align: center; font-size: 15px; color: var(--c-text-sub); background: var(--c-bg); border: 1px dashed var(--c-line); border-radius: 4px; padding: 22px; max-width: 760px; margin: 0 auto; }
+  .mech-note strong { color: var(--c-text); font-weight: 500; }
+
+  /* 流れ (flow steps) */
+  .flow { max-width: 820px; margin: 0 auto; }
+  .flow-step { display: grid; grid-template-columns: 90px 1fr; gap: 30px; padding: 30px 0; border-bottom: 1px solid var(--c-line); position: relative; }
+  .flow-step:last-child { border-bottom: none; }
+  .flow-num { text-align: center; }
+  .flow-num .en { display: block; font-size: 11px; letter-spacing: 0.18em; color: var(--c-text-sub); }
+  .flow-num .n { font-family: "Inter", sans-serif; font-size: 40px; font-weight: 700; line-height: 1; }
+  .flow-body h3 { font-size: 19px; font-weight: 500; margin-bottom: 10px; }
+  .flow-body p { font-size: 14px; color: var(--c-text-sub); }
+
+  /* CASE & FAQ */
+  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 90px; }
+  .case-card { border: 1px solid var(--c-line); border-radius: 3px; background: var(--c-bg); overflow: hidden; }
+  .case-card .ph { height: 150px; }
+  .case-body { padding: 28px 26px; }
+  .case-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .case-logo { width: 44px; height: 44px; border-radius: 50%; background: var(--c-bg-dark); display: flex; align-items: center; justify-content: center; font-family: "Inter", sans-serif; font-size: 11px; color: #888; }
+  .case-company { font-size: 15px; font-weight: 500; }
+  .case-industry { font-size: 12px; color: var(--c-text-sub); }
+  .case-comment { font-size: 14px; color: var(--c-text-sub); }
+  .case-comment::before { content: "\201C"; font-size: 28px; color: var(--c-line); display: block; line-height: 0.6; }
+  .faq-wrap { max-width: 840px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--c-line); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 26px 50px 26px 44px; position: relative; font-size: 16px; font-weight: 400; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before { content: "Q"; position: absolute; left: 8px; top: 25px; font-family: "Inter", sans-serif; font-weight: 700; color: var(--c-text-sub); }
+  .faq-item summary::after { content: "+"; position: absolute; right: 12px; top: 22px; font-size: 22px; color: var(--c-text-sub); transition: transform 0.2s; }
+  .faq-item[open] summary::after { content: "\2212"; }
+  .faq-answer { padding: 0 50px 28px 44px; font-size: 14px; color: var(--c-text-sub); position: relative; }
+  .faq-answer::before { content: "A"; position: absolute; left: 8px; top: 0; font-family: "Inter", sans-serif; font-weight: 700; color: #b5b5b5; }
+
+  /* CONTACT (2窓口分離) */
+  .contact-intro { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+  .contact-intro p { font-size: 15px; color: var(--c-text-sub); }
+  .dual { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: stretch; }
+  .window { border: 1px solid var(--c-line); border-radius: 4px; background: var(--c-bg); overflow: hidden; display: flex; flex-direction: column; }
+  .window.primary-window { border: 1px solid var(--c-line); }
+  .window-head { padding: 30px 36px 26px; border-bottom: 1px solid var(--c-line); }
+  .window-head .tag { display: inline-block; font-family: "Inter", sans-serif; font-size: 11px; letter-spacing: 0.14em; color: var(--c-text-sub); border: 1px solid var(--c-line); border-radius: 999px; padding: 4px 14px; margin-bottom: 16px; }
+  .window.primary-window .window-head .tag { background: var(--c-primary); color: #fff; border-color: var(--c-primary); }
+  .window-head h3 { font-size: 22px; font-weight: 500; margin-bottom: 8px; }
+  .window-head p { font-size: 13px; color: var(--c-text-sub); }
+  .window-body { padding: 30px 36px 40px; display: flex; flex-direction: column; flex: 1; }
+  .form-row { margin-bottom: 22px; }
+  .form-row label { display: block; font-size: 13px; margin-bottom: 8px; color: var(--c-text); }
+  .form-row label .req { color: #999; font-size: 11px; margin-left: 6px; }
+  .form-row input, .form-row select, .form-row textarea { width: 100%; padding: 13px 14px; border: 1px solid var(--c-line); border-radius: 2px; font-family: "Noto Sans JP", sans-serif; font-size: 14px; background: var(--c-bg); color: var(--c-text); }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline: none; border-color: var(--c-text-sub); }
+  .form-row textarea { resize: vertical; min-height: 100px; }
+  .window .btn, .window .btn-primary { width: 100%; margin-top: 6px; padding: 17px; font-size: 16px; }
+  /* 両ウィンドウのボタン：ホバーでアクセントカラーが付く */
+  .window .btn:hover { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+  .window .note { font-size: 12px; color: var(--c-text-sub); text-align: center; margin-top: 14px; }
+
+  /* FOOTER */
+  footer { background: #2b2b2b; color: #cfcfcf; padding: 56px 0 40px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: flex-start; }
+  footer .f-logo { font-family: "Inter", sans-serif; font-size: 20px; font-weight: 700; color: #fff; }
+  footer .f-nav { display: flex; flex-wrap: wrap; gap: 24px; max-width: 620px; justify-content: flex-end; }
+  footer .f-nav a { font-size: 13px; color: #b5b5b5; }
+  footer .f-nav a:hover { color: #fff; }
+  footer .copy { margin-top: 40px; font-family: "Inter", sans-serif; font-size: 11px; color: #888; letter-spacing: 0.05em; }
+
+  /* ===== 共通追加：固定ヘッダー対策・ヘッダーボタン・トップへ戻る ===== */
+  html { scroll-padding-top: 86px; scroll-behavior: smooth; }
+  header { background: var(--c-bg); backdrop-filter: none; }
+  .nav-btn { font-size: 14px; font-weight: 500; color: var(--c-text); border: 1px solid var(--c-line); padding: 10px 22px; border-radius: 2px; transition: all 0.2s; white-space: nowrap; }
+  .nav-btn:hover { background: var(--c-bg-alt); }
+  .nav-btn-primary { color: #fff; background: var(--c-primary); border-color: var(--c-primary); }
+  .nav-btn-primary:hover { background: var(--c-primary-hover); border-color: var(--c-primary-hover); }
+  .backtotop { position: fixed; right: 28px; bottom: 28px; z-index: 200; width: 48px; height: 48px; border-radius: 50%; background: var(--c-primary); color: #fff; border: none; font-size: 20px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.18); transition: all 0.2s; opacity: 0.92; }
+  .backtotop:hover { background: var(--c-primary-hover); opacity: 1; }
+  /* アクセント配色（CTA以外の差し色） */
+  .sec-head .label, .khead .label { color: var(--c-primary); }
+  .a-cat { background: var(--c-primary); }
+  .ktabs a:hover, .kw-cloud a:hover, .side-kw a:hover { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+  .guide-card .step b, .flow-num .n { color: var(--c-primary); }
+  .worry-answer p strong, .pain-answer p strong, .mech-note strong { color: var(--c-primary); }
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width: 1024px) {
+    :root { --gutter: 28px; }
+    .sec-head h2 { font-size: 26px; }
+    .hero-content .catch { font-size: 36px; }
+    .feature-grid, .price-grid, .case-grid, .article-grid, .rel-grid, .pain-grid, .worry-grid { grid-template-columns: repeat(2, 1fr); }
+    .guide-grid { grid-template-columns: repeat(3, 1fr); }
+    .manual-grid { grid-template-columns: repeat(2, 1fr); }
+    .article-wrap { grid-template-columns: 1fr; gap: 0; }
+    .side-col { position: static; top: auto; padding-top: 0; }
+    .a-hero { height: 300px; }
+  }
+  @media (max-width: 768px) {
+    .section { padding: 70px 0; }
+    .stats { padding: 56px 0; }
+    .stats .wrap { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--c-line); padding: 24px 16px; }
+    .mech { grid-template-columns: 1fr; }
+    .mech-arrow { padding: 12px 0; }
+    .mech-arrow .line { display: inline-block; transform: rotate(90deg); }
+    .dual, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .guide-grid { grid-template-columns: repeat(2, 1fr); }
+    .rank-grid { grid-template-columns: 1fr; }
+    .shots { grid-template-columns: 1fr; }
+    .hero-content .catch { font-size: 30px; }
+    .hero-content .sub { font-size: 15px; }
+    .khead h1 { font-size: 27px; }
+    .a-title { font-size: 25px; }
+    footer .wrap { flex-direction: column; gap: 22px; }
+    footer .f-nav { justify-content: flex-start; max-width: none; }
+  }
+  @media (max-width: 560px) {
+    :root { --gutter: 18px; }
+    .feature-grid, .price-grid, .case-grid, .article-grid, .rel-grid, .pain-grid, .worry-grid, .guide-grid, .manual-grid { grid-template-columns: 1fr; }
+    .stats .wrap { grid-template-columns: 1fr; }
+    .hero { height: 440px; }
+    .hero-content .catch { font-size: 24px; }
+    .hero-cta { flex-direction: column; }
+    .hero-cta .btn, .hero-cta .btn-primary { width: 100%; }
+    .header-inner { height: 60px; }
+    .logo { font-size: 17px; }
+    .logo span { display: none; }
+    .gnav { gap: 10px; }
+    .nav-btn { padding: 8px 14px; font-size: 13px; }
+    .sec-head h2 { font-size: 21px; }
+    .manual-card { flex-direction: column; }
+    .manual-card .ph { width: 100%; height: 120px; }
+    .ktabs { gap: 8px; }
+    .ksearch { flex-direction: column; }
+    .backtotop { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+    .a-body h2 { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#top">SERVICE A<span>求職者向け（仮）</span></a>
+    <nav class="gnav">
+      <a class="nav-btn" href="knowledge.html">ノウハウ</a>
+      <a class="nav-btn nav-btn-primary" href="#contact">無料相談</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ 1. TOP ============ -->
+<section id="top">
+  <div class="hero">
+    <div class="ph-note">［ ファーストビュー背景：AI生成画像を差し替え（1200×550想定）］</div>
+    <div class="hero-content">
+      <h1 class="catch">あなたの「次のキャリア」に、<br>いちばん近い味方を。</h1>
+      <p class="sub">〇〇に特化した転職支援サービス。相談はすべて無料。専任アドバイザーが希望に寄り添い、最後まで伴走します。</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#contact">無料で相談する</a>
+        <a class="btn" href="#features">サービスを詳しく見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat-item">
+        <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div class="stat-num">96<small>%</small></div>
+        <div class="stat-label">入社後の定着率</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <div class="stat-num">12,000<small>名</small></div>
+        <div class="stat-label">累計利用者数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <div class="stat-num">4.8<small>/5</small></div>
+        <div class="stat-label">利用者満足度</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="stat-num">21<small>日</small></div>
+        <div class="stat-label">平均内定までの日数</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ こんな不安はありませんか ============ -->
+<section id="worry" class="section section--alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">YOUR WORRIES</span>
+      <h2>こんな不安はありませんか？</h2>
+      <p>転職を考えはじめたとき、多くの方が抱える悩み。ひとつでも当てはまったら、ご相談ください。</p>
+    </div>
+    <div class="worry-grid">
+      <div class="worry-card"><div class="qmark en">?</div><p>何から始めればいいか分からない<span>初めての転職で進め方が不安…</span></p></div>
+      <div class="worry-card"><div class="qmark en">?</div><p>自分に合う仕事が分からない<span>強みや適性をどう活かせる？</span></p></div>
+      <div class="worry-card"><div class="qmark en">?</div><p>在職中で時間が取れない<span>働きながら活動できるか心配…</span></p></div>
+      <div class="worry-card"><div class="qmark en">?</div><p>書類・面接に自信がない<span>選考を通過できる気がしない…</span></p></div>
+      <div class="worry-card"><div class="qmark en">?</div><p>年収や条件が下がらないか不安<span>後悔しない選択をしたい</span></p></div>
+      <div class="worry-card"><div class="qmark en">?</div><p>相談だけでも大丈夫？<span>しつこい勧誘がないか心配…</span></p></div>
+    </div>
+    <div class="worry-answer">
+      <div class="arrow">▼</div>
+      <p>その不安、<strong>すべて無料でご相談いただけます。</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 特徴 ============ -->
+<section id="features" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">FEATURES</span>
+      <h2>サービスの特徴</h2>
+      <p>はじめての転職でも安心。あなたの可能性を引き出す6つのサポート。</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>専任アドバイザー</h3><p>業界に精通した担当が一人ひとりに付き、最後まで伴走します。仮テキストが入ります。</p></div>
+      <div class="feature-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>いつでも相談</h3><p>チャット・オンライン面談に対応。すきま時間で気軽にやり取りができます。</p></div>
+      <div class="feature-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div><h3>書類添削サポート</h3><p>通過率の高い職務経歴書へ。プロ視点で何度でも添削いたします。</p></div>
+      <div class="feature-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>面接対策</h3><p>企業ごとの傾向を踏まえた模擬面接で、本番の不安を解消します。</p></div>
+      <div class="feature-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 9l-5 5-3-3-4 4"/></svg></div><h3>非公開求人</h3><p>一般には公開されていない優良求人を多数ご紹介。選択肢が広がります。</p></div>
+      <div class="feature-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>入社後フォロー</h3><p>内定がゴールではありません。入社後の定着までしっかり支援します。</p></div>
+    </div>
+    <div class="shots">
+      <div class="ph">SCREENSHOT PLACEHOLDER<br>（マイページイメージ）</div>
+      <div class="ph">SCREENSHOT PLACEHOLDER<br>（求人提案イメージ）</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 転職エージェントの仕組み ============ -->
+<section id="mechanism" class="section section--alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">HOW IT WORKS</span>
+      <h2>転職エージェントの仕組み</h2>
+      <p>なぜ無料で利用できるの？ そのしくみをわかりやすくご説明します。</p>
+    </div>
+    <div class="mech">
+      <div class="mech-node">
+        <div class="role en">YOU</div>
+        <div class="who">求職者</div>
+        <div class="desc">あなた<br>（利用料 0円）</div>
+      </div>
+      <div class="mech-arrow">
+        <div class="line">⇄</div>
+        <div>相談・求人紹介<br>選考サポート</div>
+      </div>
+      <div class="mech-node center">
+        <div class="role en">AGENT</div>
+        <div class="who">サービスA</div>
+        <div class="desc">専任アドバイザーが<br>双方をつなぎます</div>
+      </div>
+      <div class="mech-arrow">
+        <div class="line">⇄</div>
+        <div>人材紹介<br>成功報酬</div>
+      </div>
+      <div class="mech-node">
+        <div class="role en">COMPANY</div>
+        <div class="who">採用企業</div>
+        <div class="desc">採用が決まると<br>企業が費用を負担</div>
+      </div>
+    </div>
+    <div class="mech-note">
+      採用が決まった際に<strong>企業側から成功報酬をいただく</strong>仕組みのため、<strong>求職者の方は完全無料</strong>でご利用いただけます。だからこそ、納得いくまで何度でもご相談ください。
+    </div>
+  </div>
+</section>
+
+<!-- ============ サービスの流れ ============ -->
+<section id="flow" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">FLOW</span>
+      <h2>サービスの流れ</h2>
+      <p>ご相談から内定・入社後まで。5つのステップでサポートします。</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num"><span class="en">STEP</span><span class="n">01</span></div>
+        <div class="flow-body"><h3>無料相談・登録</h3><p>フォームから1分で登録。現在のご状況や希望を、オンラインまたはチャットでお伺いします。仮テキストです。</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num"><span class="en">STEP</span><span class="n">02</span></div>
+        <div class="flow-body"><h3>キャリア面談</h3><p>専任アドバイザーが、これまでのご経験や強み、将来の希望を一緒に整理します。仮テキストです。</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num"><span class="en">STEP</span><span class="n">03</span></div>
+        <div class="flow-body"><h3>求人のご紹介</h3><p>非公開求人を含め、あなたに合った求人をご提案。気になる企業に応募します。仮テキストです。</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num"><span class="en">STEP</span><span class="n">04</span></div>
+        <div class="flow-body"><h3>選考サポート</h3><p>書類添削・面接対策・日程調整まで代行。安心して選考に臨めます。仮テキストです。</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num"><span class="en">STEP</span><span class="n">05</span></div>
+        <div class="flow-body"><h3>内定・入社後フォロー</h3><p>条件交渉も代行。入社後も定着まで継続的にフォローします。仮テキストです。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 導入事例 & FAQ ============ -->
+<section id="case" class="section section--alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">CASE &amp; FAQ</span>
+      <h2>利用者の声 &amp; よくある質問</h2>
+      <p>実際にご利用いただいた方の声と、お問い合わせの多いご質問をまとめました。</p>
+    </div>
+    <div class="case-grid">
+      <div class="case-card"><div class="ph">CASE IMAGE</div><div class="case-body"><div class="case-meta"><div class="case-logo">LOGO</div><div><div class="case-company">A社（仮）へ転職</div><div class="case-industry">IT・Web業界 / 20代女性</div></div></div><p class="case-comment">未経験からの挑戦でしたが、丁寧なサポートのおかげで希望の職種に転職できました。仮テキストです。</p></div></div>
+      <div class="case-card"><div class="ph">CASE IMAGE</div><div class="case-body"><div class="case-meta"><div class="case-logo">LOGO</div><div><div class="case-company">B社（仮）へ転職</div><div class="case-industry">製造・メーカー / 30代男性</div></div></div><p class="case-comment">年収アップと働き方の両立が叶いました。面接対策がとても役立ちました。仮テキストです。</p></div></div>
+      <div class="case-card"><div class="ph">CASE IMAGE</div><div class="case-body"><div class="case-meta"><div class="case-logo">LOGO</div><div><div class="case-company">C社（仮）へ転職</div><div class="case-industry">サービス業 / 40代男性</div></div></div><p class="case-comment">非公開求人を紹介いただき、思いがけないご縁につながりました。仮テキストです。</p></div></div>
+    </div>
+    <div class="faq-wrap">
+      <details class="faq-item" open><summary>本当に無料で利用できますか？</summary><div class="faq-answer">はい。採用企業からの成功報酬で運営しているため、求職者の方は完全無料でご利用いただけます。ここは仮の回答テキストです。</div></details>
+      <details class="faq-item"><summary>未経験の業界でも相談できますか？</summary><div class="faq-answer">もちろん可能です。これまでのご経験や希望を伺いながら、最適なキャリアをご提案します。ここは仮の回答テキストです。</div></details>
+      <details class="faq-item"><summary>在職中でも利用できますか？</summary><div class="faq-answer">はい。お仕事を続けながらでもご利用いただけるよう、オンライン面談やチャットに対応しています。ここは仮の回答テキストです。</div></details>
+      <details class="faq-item"><summary>相談だけでも大丈夫ですか？</summary><div class="faq-answer">大歓迎です。情報収集の段階でも構いません。無理に転職を勧めることはありません。ここは仮の回答テキストです。</div></details>
+      <details class="faq-item"><summary>登録から内定までどのくらいかかりますか？</summary><div class="faq-answer">平均で約3週間ですが、ご状況により前後します。お急ぎの場合もお気軽にご相談ください。ここは仮の回答テキストです。</div></details>
+      <details class="faq-item"><summary>地方在住でもサポートを受けられますか？</summary><div class="faq-answer">全国どこからでもオンラインでご利用いただけます。地方の求人紹介にも対応しています。ここは仮の回答テキストです。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ お問い合わせ（2窓口に分離） ============ -->
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">CONTACT</span>
+      <h2>お問い合わせ</h2>
+    </div>
+    <div class="contact-intro">
+      <p>ご相談内容に応じて、窓口をお選びください。求職者の方の相談、企業の方からのお問い合わせ、いずれも無料です。</p>
+    </div>
+    <div class="dual">
+      <!-- 窓口1：求職者の無料相談 -->
+      <div class="window primary-window">
+        <div class="window-head">
+          <span class="tag en">FOR JOB SEEKERS</span>
+          <h3>転職をお考えの方<br>無料相談窓口</h3>
+          <p>キャリアの悩みから求人探しまで。専任アドバイザーが無料でサポートします。</p>
+        </div>
+        <form class="window-body" onsubmit="return false;">
+          <div class="form-row"><label>お名前 <span class="req">必須</span></label><input type="text" placeholder="山田 太郎"></div>
+          <div class="form-row"><label>メールアドレス <span class="req">必須</span></label><input type="email" placeholder="example@mail.com"></div>
+          <div class="form-row"><label>電話番号 <span class="req">任意</span></label><input type="tel" placeholder="090-0000-0000"></div>
+          <div class="form-row"><label>ご相談内容 <span class="req">任意</span></label><textarea placeholder="現在のご状況やご希望をご記入ください。"></textarea></div>
+          <button type="submit" class="btn-primary">無料で相談する</button>
+          <p class="note">※ ワイヤーフレームです。送信機能はありません。</p>
+        </form>
+      </div>
+      <!-- 窓口2：企業の問い合わせ -->
+      <div class="window">
+        <div class="window-head">
+          <span class="tag en">FOR COMPANIES</span>
+          <h3>採用をご検討の企業さま<br>お問い合わせ窓口</h3>
+          <p>人材紹介・採用支援に関するご相談はこちら。お問い合わせは無料です。</p>
+        </div>
+        <form class="window-body" onsubmit="return false;">
+          <div class="form-row"><label>会社名 <span class="req">必須</span></label><input type="text" placeholder="株式会社〇〇"></div>
+          <div class="form-row"><label>ご担当者名 <span class="req">必須</span></label><input type="text" placeholder="採用 花子"></div>
+          <div class="form-row"><label>メールアドレス <span class="req">必須</span></label><input type="email" placeholder="recruit@company.co.jp"></div>
+          <div class="form-row"><label>お問い合わせ内容 <span class="req">任意</span></label><textarea placeholder="採用課題やご相談内容をご記入ください。"></textarea></div>
+          <button type="submit" class="btn">お問い合わせする</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 固定：トップへ戻る -->
+<button class="backtotop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ページ上部へ戻る">↑</button>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="f-logo">SERVICE A</div>
+      <p style="font-size:12px; color:#9a9a9a; margin-top:10px;">〇〇に特化した転職支援サービス（仮）／ 求職者向け</p>
+    </div>
+    <nav class="f-nav">
+      <a href="#top">TOP</a><a href="#worry">不安</a><a href="#features">特徴</a><a href="#mechanism">仕組み</a><a href="#flow">流れ</a><a href="knowledge.html">ノウハウ</a><a href="#case">事例・FAQ</a><a href="#contact">無料相談</a><a href="../コーポレートページ/wireframe.html" target="_blank">コーポレートサイト ↗</a>
+    </nav>
+  </div>
+  <div class="wrap"><div class="copy">© 2026 SERVICE A (Wireframe). All rights reserved.</div></div>
+</footer>
+
+</body>
+</html>

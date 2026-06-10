@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>職務経歴書の書き方完全ガイド | 転職ノウハウ・コラム（サービスA 仮）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --c-text: #2b2b2b; --c-text-sub: #6b6b6b; --c-line: #dcdcdc;
+    --c-bg: #ffffff; --c-bg-alt: #f5f5f5; --c-bg-dark: #e4e4e4; --c-placeholder: #cfcfcf;
+    /* メインCTA／アクセント：サービスA＝コーラル（コーポレートのターコイズと非干渉） */
+    --c-primary: #E25A3E; --c-primary-hover: #C4472D;
+    --maxw: 1200px; --gutter: 40px;
+  }
+  body { font-family: "Noto Sans JP", sans-serif; font-weight: 300; color: var(--c-text); background: var(--c-bg); line-height: 1.95; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4 { font-weight: 400; line-height: 1.5; }
+  .en { font-family: "Inter", sans-serif; letter-spacing: 0.08em; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+  .btn { display: inline-block; padding: 15px 36px; font-size: 15px; font-weight: 400; text-align: center; border: 1px solid var(--c-text); background: transparent; color: var(--c-text); cursor: pointer; transition: all 0.2s; border-radius: 2px; }
+  .btn:hover { background: var(--c-bg-dark); }
+  .btn-primary { display: inline-block; padding: 16px 42px; font-size: 16px; font-weight: 500; text-align: center; border: 1px solid var(--c-primary); background: var(--c-primary); color: #fff; cursor: pointer; transition: all 0.2s; border-radius: 2px; }
+  .btn-primary:hover { background: var(--c-primary-hover); border-color: var(--c-primary-hover); }
+  .ph { background: var(--c-placeholder); color: #888; display: flex; align-items: center; justify-content: center; font-family: "Inter", sans-serif; font-size: 12px; letter-spacing: 0.08em; text-align: center; }
+
+  /* HEADER */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--c-line); backdrop-filter: blur(4px); }
+  .header-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: "Inter", sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 0.05em; }
+  .logo span { font-size: 12px; color: var(--c-text-sub); margin-left: 8px; font-weight: 400; }
+  .gnav { display: flex; align-items: center; gap: 24px; }
+  .gnav a.nav-link { font-size: 13px; font-family: "Inter", sans-serif; font-weight: 500; letter-spacing: 0.06em; color: var(--c-text-sub); }
+  .gnav a.nav-link:hover { color: var(--c-text); }
+  .nav-cta { font-size: 13px; color: #fff; background: var(--c-primary); padding: 9px 18px; border-radius: 2px; }
+  .nav-cta:hover { background: var(--c-primary-hover); }
+
+  /* レイアウト：本文 + サイドバー */
+  .article-wrap { max-width: 1100px; margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: start; }
+  .main-col { min-width: 0; padding: 50px 0 90px; }
+  .side-col { padding: 50px 0 90px; position: sticky; top: 92px; }
+
+  .breadcrumb { font-size: 12px; color: var(--c-text-sub); margin-bottom: 28px; }
+  .breadcrumb a:hover { color: var(--c-text); }
+  .breadcrumb span { margin: 0 8px; color: var(--c-line); }
+
+  /* 記事ヘッダー */
+  .a-head { border-bottom: 1px solid var(--c-line); padding-bottom: 30px; margin-bottom: 36px; }
+  .a-cat { display: inline-block; font-size: 12px; color: #fff; background: var(--c-text); padding: 4px 14px; border-radius: 2px; margin-bottom: 18px; }
+  .a-title { font-size: 32px; font-weight: 500; line-height: 1.5; letter-spacing: 0.02em; }
+  .a-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 22px; }
+  .a-tags span { font-size: 11px; color: var(--c-text-sub); background: var(--c-bg-alt); border: 1px solid var(--c-line); padding: 3px 11px; border-radius: 999px; }
+  .a-meta { display: flex; align-items: center; gap: 16px; margin-top: 22px; font-size: 13px; color: var(--c-text-sub); }
+  .a-meta .author { display: flex; align-items: center; gap: 10px; }
+  .a-meta .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--c-bg-dark); }
+  .a-meta .date { font-family: "Inter", sans-serif; }
+
+  .a-hero { height: 360px; border-radius: 4px; margin-bottom: 40px; }
+
+  /* リード */
+  .a-lead { font-size: 16px; color: var(--c-text); background: var(--c-bg-alt); border-left: 3px solid var(--c-text); padding: 24px 28px; border-radius: 0 4px 4px 0; margin-bottom: 44px; }
+
+  /* 目次 */
+  .toc { border: 1px solid var(--c-line); border-radius: 4px; padding: 26px 30px; margin-bottom: 50px; background: #fff; }
+  .toc h2 { font-size: 16px; font-weight: 500; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .toc h2 .en { font-size: 11px; color: var(--c-text-sub); border: 1px solid var(--c-line); padding: 2px 10px; border-radius: 999px; }
+  .toc ol { list-style: none; counter-reset: toc; }
+  .toc ol li { counter-increment: toc; padding: 8px 0 8px 32px; position: relative; font-size: 14px; }
+  .toc ol li::before { content: counter(toc); position: absolute; left: 0; top: 8px; font-family: "Inter", sans-serif; font-weight: 700; font-size: 13px; color: var(--c-text-sub); width: 22px; height: 22px; border: 1px solid var(--c-line); border-radius: 50%; text-align: center; line-height: 20px; }
+  .toc ol li a:hover { text-decoration: underline; }
+
+  /* 本文 */
+  .a-body h2 { font-size: 24px; font-weight: 500; margin: 56px 0 24px; padding: 14px 0 14px 20px; border-left: 5px solid var(--c-text); background: var(--c-bg-alt); border-radius: 0 3px 3px 0; }
+  .a-body h3 { font-size: 19px; font-weight: 500; margin: 40px 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--c-line); }
+  .a-body p { font-size: 15px; margin-bottom: 22px; }
+  .a-body .fig { margin: 32px 0; }
+  .a-body .fig .ph { height: 280px; border-radius: 4px; }
+  .a-body .fig figcaption { font-size: 12px; color: var(--c-text-sub); text-align: center; margin-top: 10px; }
+  .a-body ul.bullets { margin: 0 0 24px; }
+  .a-body ul.bullets li { font-size: 15px; padding: 8px 0 8px 26px; position: relative; }
+  .a-body ul.bullets li::before { content: ""; position: absolute; left: 4px; top: 16px; width: 8px; height: 8px; background: var(--c-text); border-radius: 50%; }
+  .a-body .pointbox { border: 1px solid var(--c-line); border-radius: 4px; padding: 26px 30px; margin: 34px 0; background: #fff; }
+  .a-body .pointbox .ttl { font-size: 14px; font-weight: 500; margin-bottom: 14px; display: inline-block; border-bottom: 2px solid var(--c-text); padding-bottom: 4px; }
+  .a-body .pointbox ul li { font-size: 14px; padding: 6px 0 6px 24px; position: relative; color: var(--c-text-sub); }
+  .a-body .pointbox ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 14px; height: 7px; border-left: 2px solid var(--c-text); border-bottom: 2px solid var(--c-text); transform: rotate(-45deg); }
+  .a-body blockquote { border-left: 3px solid var(--c-line); padding: 6px 0 6px 22px; margin: 28px 0; color: var(--c-text-sub); font-size: 15px; }
+
+  /* 記事内CTA */
+  .inline-cta { background: var(--c-text); color: #fff; border-radius: 4px; padding: 40px 44px; margin: 56px 0; text-align: center; }
+  .inline-cta h3 { font-size: 20px; font-weight: 400; margin-bottom: 12px; }
+  .inline-cta p { font-size: 14px; color: #cfcfcf; margin-bottom: 26px; }
+  .inline-cta .btn-primary { background: #fff; color: var(--c-text); border-color: #fff; }
+  .inline-cta .btn-primary:hover { background: #e4e4e4; }
+
+  /* シェア */
+  .a-share { display: flex; align-items: center; gap: 12px; margin: 48px 0; padding-top: 30px; border-top: 1px solid var(--c-line); }
+  .a-share span { font-size: 13px; color: var(--c-text-sub); }
+  .a-share a { width: 38px; height: 38px; border: 1px solid var(--c-line); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: "Inter", sans-serif; font-size: 12px; color: var(--c-text-sub); }
+  .a-share a:hover { background: var(--c-bg-alt); }
+
+  /* サイドバー */
+  .side-block { margin-bottom: 40px; }
+  .side-block h3 { font-size: 14px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--c-text); }
+  .side-rank li { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--c-line); }
+  .side-rank .n { font-family: "Inter", sans-serif; font-weight: 700; color: var(--c-bg-dark); width: 22px; flex-shrink: 0; text-align: center; }
+  .side-rank li:nth-child(-n+3) .n { color: var(--c-text); }
+  .side-rank p { font-size: 13px; }
+  .side-rank li:hover p { text-decoration: underline; }
+  .side-kw { display: flex; flex-wrap: wrap; gap: 8px; }
+  .side-kw a { font-size: 12px; color: var(--c-text-sub); border: 1px solid var(--c-line); padding: 6px 13px; border-radius: 999px; }
+  .side-kw a:hover { background: var(--c-text); color: #fff; border-color: var(--c-text); }
+  .side-cta { border: 1px solid var(--c-line); border-radius: 4px; padding: 28px 26px; text-align: center; }
+  .side-cta .ph { height: 120px; border-radius: 3px; margin-bottom: 18px; }
+  .side-cta p { font-size: 13px; color: var(--c-text-sub); margin-bottom: 18px; }
+  .side-cta .btn-primary { width: 100%; padding: 13px; font-size: 14px; }
+
+  /* 関連記事 */
+  .related { background: var(--c-bg-alt); border-top: 1px solid var(--c-line); padding: 70px 0; }
+  .related .sec-head { text-align: center; margin-bottom: 44px; }
+  .related .sec-head .label { font-family: "Inter", sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--c-text-sub); display: block; margin-bottom: 12px; }
+  .related .sec-head h2 { font-size: 24px; font-weight: 400; }
+  .rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .rel-card { background: #fff; border: 1px solid var(--c-line); border-radius: 3px; overflow: hidden; transition: box-shadow 0.2s; }
+  .rel-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.06); }
+  .rel-card .ph { height: 150px; }
+  .rel-body { padding: 20px 22px 24px; }
+  .rel-tags { display: flex; gap: 6px; margin-bottom: 10px; }
+  .rel-tags span { font-size: 11px; color: var(--c-text-sub); background: var(--c-bg-alt); border: 1px solid var(--c-line); padding: 2px 9px; border-radius: 999px; }
+  .rel-card h3 { font-size: 15px; font-weight: 500; line-height: 1.6; }
+  .rel-card h3:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer { background: #2b2b2b; color: #cfcfcf; padding: 56px 0 40px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: flex-start; }
+  footer .f-logo { font-family: "Inter", sans-serif; font-size: 20px; font-weight: 700; color: #fff; }
+  footer .f-nav { display: flex; flex-wrap: wrap; gap: 24px; max-width: 620px; justify-content: flex-end; }
+  footer .f-nav a { font-size: 13px; color: #b5b5b5; }
+  footer .f-nav a:hover { color: #fff; }
+  footer .copy { margin-top: 40px; font-family: "Inter", sans-serif; font-size: 11px; color: #888; letter-spacing: 0.05em; }
+
+  /* ===== 共通追加：固定ヘッダー対策・ヘッダーボタン・トップへ戻る ===== */
+  html { scroll-padding-top: 86px; scroll-behavior: smooth; }
+  header { background: var(--c-bg); backdrop-filter: none; }
+  .nav-btn { font-size: 14px; font-weight: 500; color: var(--c-text); border: 1px solid var(--c-line); padding: 10px 22px; border-radius: 2px; transition: all 0.2s; white-space: nowrap; }
+  .nav-btn:hover { background: var(--c-bg-alt); }
+  .nav-btn-primary { color: #fff; background: var(--c-primary); border-color: var(--c-primary); }
+  .nav-btn-primary:hover { background: var(--c-primary-hover); border-color: var(--c-primary-hover); }
+  .backtotop { position: fixed; right: 28px; bottom: 28px; z-index: 200; width: 48px; height: 48px; border-radius: 50%; background: var(--c-primary); color: #fff; border: none; font-size: 20px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.18); transition: all 0.2s; opacity: 0.92; }
+  .backtotop:hover { background: var(--c-primary-hover); opacity: 1; }
+  /* アクセント配色（CTA以外の差し色） */
+  .sec-head .label, .khead .label, .related .sec-head .label { color: var(--c-primary); }
+  .a-cat { background: var(--c-primary); }
+  .ktabs a:hover, .kw-cloud a:hover, .side-kw a:hover { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+  .toc h2 .en { color: var(--c-primary); border-color: var(--c-primary); }
+  .a-body h2 { border-left-color: var(--c-primary); }
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width: 1024px) {
+    :root { --gutter: 28px; }
+    .article-wrap { grid-template-columns: 1fr; gap: 0; }
+    .side-col { position: static; top: auto; padding: 0 0 70px; }
+    .main-col { padding-bottom: 50px; }
+    .a-hero { height: 300px; }
+    .rel-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .a-title { font-size: 25px; }
+    .a-hero { height: 240px; }
+    .a-body h2 { font-size: 22px; }
+    footer .wrap { flex-direction: column; gap: 22px; }
+    footer .f-nav { justify-content: flex-start; max-width: none; }
+  }
+  @media (max-width: 560px) {
+    :root { --gutter: 18px; }
+    .rel-grid { grid-template-columns: 1fr; }
+    .header-inner { height: 60px; }
+    .logo { font-size: 17px; }
+    .logo span { display: none; }
+    .gnav { gap: 10px; }
+    .nav-btn { padding: 8px 14px; font-size: 13px; }
+    .a-title { font-size: 21px; }
+    .a-hero { height: 190px; }
+    .a-body h2 { font-size: 20px; }
+    .inline-cta { padding: 30px 22px; }
+    .backtotop { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="serviceA.html#top">SERVICE A<span>求職者向け（仮）</span></a>
+    <nav class="gnav">
+      <a class="nav-btn" href="knowledge.html">ノウハウ</a>
+      <a class="nav-btn nav-btn-primary" href="serviceA.html#contact">無料相談</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ 記事レイアウト ============ -->
+<div class="article-wrap">
+
+  <!-- 本文カラム -->
+  <article class="main-col">
+    <div class="breadcrumb"><a href="serviceA.html#top">TOP</a><span>/</span><a href="knowledge.html">転職ノウハウ</a><span>/</span>職務経歴書の書き方</div>
+
+    <header class="a-head">
+      <span class="a-cat">応募書類</span>
+      <h1 class="a-title">職務経歴書の書き方完全ガイド｜通過率を上げる構成と職種別サンプル</h1>
+      <div class="a-tags"><span>職務経歴書</span><span>書き方</span><span>例文</span><span>テンプレート</span></div>
+      <div class="a-meta">
+        <div class="author"><div class="avatar"></div><span>サービスA 編集部</span></div>
+        <span class="date en">2026.05.28</span>
+        <span>更新：2026.06.01</span>
+      </div>
+    </header>
+
+    <div class="ph a-hero">ARTICLE HERO IMAGE（記事のメイン画像）</div>
+
+    <p class="a-lead">「何を書けばいいか分からない」「職歴が多くてまとまらない」——職務経歴書で悩む方は少なくありません。この記事では、採用担当者に伝わる職務経歴書の基本構成から、職種別の書き方・サンプルまでを分かりやすく解説します。※本文はすべて仮テキストです。</p>
+
+    <!-- 目次 -->
+    <nav class="toc">
+      <h2>目次 <span class="en">CONTENTS</span></h2>
+      <ol>
+        <li><a href="#s1">職務経歴書とは？ 履歴書との違い</a></li>
+        <li><a href="#s2">基本の構成と書く順番</a></li>
+        <li><a href="#s3">通過率を上げる3つのポイント</a></li>
+        <li><a href="#s4">職種別の書き方サンプル</a></li>
+        <li><a href="#s5">よくあるNG例と改善方法</a></li>
+        <li><a href="#s6">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <div class="a-body">
+      <h2 id="s1">職務経歴書とは？ 履歴書との違い</h2>
+      <p>職務経歴書は、これまでの業務経験やスキルを採用担当者に伝えるための書類です。履歴書が基本的なプロフィールを示すのに対し、職務経歴書は「何ができるのか」を具体的に示す役割を持ちます。ここは仮テキストです。実際の原稿では、読み手の視点に立った説明を入れていきます。</p>
+      <p>採用担当者は限られた時間で多くの書類に目を通します。そのため、要点が整理され、ひと目で強みが伝わる構成が重要になります。ここは仮テキストです。</p>
+
+      <figure class="fig">
+        <div class="ph">IMAGE PLACEHOLDER（履歴書と職務経歴書の比較図）</div>
+        <figcaption>図：履歴書と職務経歴書の役割の違い（イメージ）</figcaption>
+      </figure>
+
+      <h2 id="s2">基本の構成と書く順番</h2>
+      <p>一般的な職務経歴書は、次の要素で構成されます。ここは仮テキストです。</p>
+      <ul class="bullets">
+        <li>職務要約（これまでの経歴の要点を3〜4行で）</li>
+        <li>職務経歴（会社ごと・期間ごとに具体的に）</li>
+        <li>活かせる経験・スキル</li>
+        <li>保有資格</li>
+        <li>自己PR</li>
+      </ul>
+
+      <h3>職務要約は「最初の3行」が勝負</h3>
+      <p>冒頭の職務要約は、採用担当者が最初に読む部分です。ここで興味を持ってもらえるかどうかが、その先を読んでもらえるかを左右します。ここは仮テキストです。</p>
+
+      <div class="pointbox">
+        <span class="ttl">この章のポイント</span>
+        <ul>
+          <li>結論から書く（実績→詳細の順）</li>
+          <li>数字を使って具体的に示す</li>
+          <li>応募先に合わせて強調点を変える</li>
+        </ul>
+      </div>
+
+      <h2 id="s3">通過率を上げる3つのポイント</h2>
+      <p>同じ経歴でも、書き方ひとつで印象は大きく変わります。ここでは特に効果の高い3つのポイントを紹介します。ここは仮テキストです。</p>
+      <blockquote>「実績は、可能な限り数字で表現する」——これだけで説得力が大きく変わります。（仮の引用テキスト）</blockquote>
+
+      <h2 id="s4">職種別の書き方サンプル</h2>
+      <p>営業・事務・エンジニアなど、職種によって伝えるべきポイントは異なります。ここは仮テキストです。代表的な職種ごとのサンプルを掲載します。</p>
+      <figure class="fig">
+        <div class="ph">IMAGE PLACEHOLDER（職種別サンプルのイメージ）</div>
+        <figcaption>図：職種別 職務経歴書サンプル（イメージ）</figcaption>
+      </figure>
+
+      <!-- 記事内CTA -->
+      <div class="inline-cta">
+        <h3>書類作成に自信がない方へ</h3>
+        <p>専任アドバイザーが、あなたの職務経歴書を無料で添削します。</p>
+        <a class="btn-primary" href="serviceA.html#contact">無料で相談する</a>
+      </div>
+
+      <h2 id="s5">よくあるNG例と改善方法</h2>
+      <p>「業務内容を羅列しただけ」「専門用語が多すぎる」など、ありがちな失敗には改善のコツがあります。ここは仮テキストです。</p>
+
+      <h2 id="s6">まとめ</h2>
+      <p>職務経歴書は、あなたの経験を「相手に伝わる形」に整理することが何より大切です。本記事のポイントを踏まえて、まずは職務要約から書き始めてみましょう。ここは仮テキストです。</p>
+
+      <!-- シェア -->
+      <div class="a-share">
+        <span>この記事をシェア</span>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="LINE">L</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- サイドバー -->
+  <aside class="side-col">
+    <div class="side-block">
+      <h3>人気記事ランキング</h3>
+      <ul class="side-rank">
+        <li><span class="n en">1</span><a href="knowledge-article.html"><p>職務経歴書の書き方完全ガイド</p></a></li>
+        <li><span class="n en">2</span><a href="knowledge-article.html"><p>面接の定番質問＆回答例50</p></a></li>
+        <li><span class="n en">3</span><a href="knowledge-article.html"><p>志望動機の作り方と例文集</p></a></li>
+        <li><span class="n en">4</span><a href="knowledge-article.html"><p>退職理由の好印象な伝え方</p></a></li>
+        <li><span class="n en">5</span><a href="knowledge-article.html"><p>転職に有利な時期はいつ？</p></a></li>
+      </ul>
+    </div>
+    <div class="side-block">
+      <h3>人気キーワード</h3>
+      <div class="side-kw">
+        <a href="knowledge.html">職務経歴書</a><a href="knowledge.html">履歴書</a><a href="knowledge.html">面接</a><a href="knowledge.html">志望動機</a><a href="knowledge.html">自己PR</a><a href="knowledge.html">例文</a><a href="knowledge.html">未経験</a><a href="knowledge.html">退職</a>
+      </div>
+    </div>
+    <div class="side-block">
+      <div class="side-cta">
+        <div class="ph">BANNER</div>
+        <p>転職のお悩み、専任アドバイザーに無料で相談できます。</p>
+        <a class="btn-primary" href="serviceA.html#contact">無料で相談する</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ============ 関連記事 ============ -->
+<section class="related">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label en">RELATED ARTICLES</span>
+      <h2>関連記事</h2>
+    </div>
+    <div class="rel-grid">
+      <a class="rel-card" href="knowledge-article.html"><div class="ph">IMAGE</div><div class="rel-body"><div class="rel-tags"><span>履歴書</span><span>書き方</span></div><h3>履歴書の書き方｜基本マナーと記入例</h3></div></a>
+      <a class="rel-card" href="knowledge-article.html"><div class="ph">IMAGE</div><div class="rel-body"><div class="rel-tags"><span>自己PR</span><span>例文</span></div><h3>自己PRの書き方・例文集｜強みの伝え方</h3></div></a>
+      <a class="rel-card" href="knowledge-article.html"><div class="ph">IMAGE</div><div class="rel-body"><div class="rel-tags"><span>面接</span><span>対策</span></div><h3>面接で必ず聞かれる質問と回答例</h3></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 固定：トップへ戻る -->
+<button class="backtotop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ページ上部へ戻る">↑</button>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="f-logo">SERVICE A</div>
+      <p style="font-size:12px; color:#9a9a9a; margin-top:10px;">〇〇に特化した転職支援サービス（仮）／ 求職者向け</p>
+    </div>
+    <nav class="f-nav">
+      <a href="serviceA.html#top">TOP</a><a href="serviceA.html#features">特徴</a><a href="serviceA.html#mechanism">仕組み</a><a href="serviceA.html#flow">流れ</a><a href="knowledge.html">ノウハウ</a><a href="serviceA.html#contact">無料相談</a><a href="../コーポレートページ/wireframe.html" target="_blank">コーポレートサイト ↗</a>
+    </nav>
+  </div>
+  <div class="wrap"><div class="copy">© 2026 SERVICE A (Wireframe). All rights reserved.</div></div>
+</footer>
+
+</body>
+</html>
